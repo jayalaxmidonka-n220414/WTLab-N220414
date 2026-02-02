@@ -1,42 +1,18 @@
-const websiteName = "SecureNet Hub";
-const initialStatus = "Operational";
-
-
-let userCount = 42;
-let threatLevel = "Medium";
-
-
-console.log("Website Name (const):", websiteName);
-console.log("Initial User Count (let):", userCount);
-console.log("Initial Threat Level (let):", threatLevel);
-
-
-
-function displayVariables() {
-    
-    document.getElementById('threatLevelDisplay').textContent = threatLevel;
-    document.getElementById('userCountDisplay').textContent = userCount;
-    document.getElementById('systemStatusDisplay').textContent = initialStatus;
-}
-
-
 function updateThreatLevel() {
+    const display = document.getElementById('threatLevelDisplay');
+    const status = document.getElementById('systemStatusDisplay');
     
-    threatLevel = "High Alert"; 
-    
-    
-    displayVariables();
-
-    
-    console.log("Threat level updated to:", threatLevel);
+    if (display.innerText === "LOW") {
+        display.innerText = "HIGH";
+        display.style.color = "#ff4d4d";
+        status.innerText = "THREAT DETECTED";
+        status.style.color = "#ff4d4d";
+        alert("🚨 WARNING: Unusual network activity detected!");
+    } else {
+        display.innerText = "LOW";
+        display.style.color = "#00ff00";
+        status.innerText = "ENABLED";
+        status.style.color = "white";
+        alert("✅ Security scan complete. System is Secure.");
+    }
 }
-
-
-try {
-    websiteName = "New Name"; 
-} catch (e) {
-    console.error("Error attempting to reassign a const variable:", e.message);
-}
-
-
-window.onload = displayVariables;
