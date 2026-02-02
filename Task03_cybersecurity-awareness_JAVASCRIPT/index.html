@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>cybersecurity awareness</title>
-    <link rel="icon" type="image/jpg" href="cslogo2.jpg">
-    <meta name="description" content="this website tells about cybersecurity awareness">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Awareness Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="body">
 
 <nav class="nav">
@@ -18,109 +17,105 @@
     </ul>
 </nav>
 
-<header>
-    <h1 align="center" class="h1"><u>CYBERSECURITY AWARENESS</u></h1>
-    <center>
-        <a href="https://www.cisa.gov">
-            <img src="pic.jpg" alt="cybersecurity logo" height="500" width="500">
+<header class="hero-section">
+    <h1 class="main-title">CYBERSECURITY AWARENESS</h1>
+    
+    <div class="main-hero-container">
+        <a href="https://www.cisa.gov" target="_blank">
+            <img src="pic.jpg" alt="Cybersecurity Shield" class="main-pic">
         </a>
-    </center>
-</header>
-
-<marquee direction="right">
-    <font color="cyan" size="5">cybercrime helpline-1930</font>
-</marquee>
-
-<p style="font-size:24px; font-family:Georgia; text-align:center;">
-    <i>
-    Cybersecurity awareness is about educating individuals and organizations to recognize online threats...
-    </i>
-</p>
-
-<h1 class="h1"><u>Cybersecurity tips:</u></h1>
-
-<img src="i1.jpg" height="300" width="300">
-<h1 style="text-align:left;">1. Create strong passwords</h1>
-
-<img src="i2.png" height="300" width="300" style="display:block;margin-left:auto;">
-<h1 style="text-align:right;">2. Use multifactor authentication</h1>
-
-<img src="i3.jpg" height="300" width="300">
-<h1 style="text-align:left;">3. Use antivirus software</h1>
-
-<img src="i4.jpg" height="300" width="300" style="display:block;margin-left:auto;">
-<h1 style="text-align:right;">4. Change default passwords</h1>
-
-<img src="i5.jpg" height="300" width="300">
-<h1 style="text-align:left;">5. Encrypt sensitive data</h1>
-
-<video class="video" controls>
-    <source src="video.mp4" type="video/mp4">
-</video>
-
-<audio class="audio" controls>
-    <source src="audio.mp3" type="audio/mpeg">
-</audio>
-
-<h1><u><i>Book Reference for Cybersecurity Awareness:</i></u></h1>
-
-<iframe src="pdf.pdf" width="500" height="300" style="display:block;margin:auto;"></iframe>
-
-<div class="table-container">
-<table class="cyber-table">
-    <caption>Phising: Red Flags vs. Legitimate Emails (2026 edition)</caption>
-    <thead>
-        <tr>
-            <th>feature</th>
-            <th>legitimate email</th>
-            <th>phishing red flag</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-           <td class="feature-col">sender address</td> 
-           <td>matches the official company doamin (e.g.,<code class="safe">hr@company.com</code>.)</td>
-           <td>look-alike domains(e.g.,<code class="danger">hr@company-support.com</code>)or generic public provider.</td>
-        </tr>
-        <tr>
-            <td class="feature-col">tone & urgency</td>
-            <td>professional,informative,and expected.</td>
-            <td>artificial urgency or threats(e.g.,"account deletionin 2 hours").</td>
-        </tr>
-        <tr>
-            <td class="feature-col">links</td>
-            <td>leads to official,<code class="safe">https://</code>websites you recognise.</code></td>
-            <td>shortened urls or hidden links(hover your mouse to reveal the real ddestination).</td>
-        </tr>
-        <tr>
-            <td class="feature-col">attachments</td>
-            <td>expected files (e.g., a PDF report you requested).</td>
-            <td>unsolicited <code class="danger">.zip</code>,<code class="danger">.exe</code>,or macro-enabled documents.</td>
-        </tr>
-        <tr>
-            <td class="feature-col">grammar/style</td>
-            <td>polished and consistent with company branding.</td>
-            <td>unusaual phrasing,poor grammar,or AI-generated generic "perfect" tonr.</td>
-        </tr>
-    </tbody>
-</table>
-</div>
-
-<div class="variable-section">
-        <h2>Cybersecurity Awareness Tracker</h2>
-        <p>Current Threat Level: <strong id="threatLevelDisplay">Loading...</strong></p>
-        <p>Active Users (Count): <span id="userCountDisplay">Loading...</span></p>
-        <p>System Status: <strong id="systemStatusDisplay">Loading...</strong></p>
-        
-        <button onclick="updateThreatLevel()">Acknowledge Threat</button>
     </div>
 
+    <div class="intro-container">
+        <div class="glass-card intro-box">
+            <p><i>Cybersecurity awareness involves educating individuals to recognize online threats like phishing and malware. By adopting safe habits, you become the first line of defense against data loss, protecting your digital identity in an evolving world.</i></p>
+        </div>
+    </div>
+</header>
+
+<div class="marquee-bar">
+    <div class="marquee-content">
+        CYBERCRIME HELPLINE: 1930 &bull; STAY VIGILANT &bull; ENABLE MFA &bull; CHANGE DEFAULT PASSWORDS &bull; ENCRYPT SENSITIVE DATA &bull; 
+    </div>
+</div>
+
+<section class="tips-grid">
+    <div class="tip-card">
+        <div class="tip-row">
+            <img src="i1.jpg" alt="Passwords" class="tip-img">
+            <div class="tip-text">
+                <h2>1. Create Strong Passwords</h2>
+                <p>Use at least 12 characters combining uppercase, numbers, and symbols. Experts recommend a [Password Manager](https://www.pcmag.com) for maximum safety.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tip-card">
+        <div class="tip-row reverse">
+            <img src="i2.png" alt="MFA" class="tip-img">
+            <div class="tip-text">
+                <h2>2. Use Multi-Factor Authentication (MFA)</h2>
+                <p>MFA adds a critical second layer of defense. Even if a password is leaked, hackers cannot access your account without the secondary code.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tip-card">
+        <div class="tip-row">
+            <img src="i3.jpg" alt="Antivirus" class="tip-img">
+            <div class="tip-text">
+                <h2>3. Use Reliable Antivirus Software</h2>
+                <p>Modern antivirus scans for real-time threats and blocks malicious downloads. Keep software updated via [Norton Security](https://us.norton.com).</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tip-card">
+        <div class="tip-row reverse">
+            <img src="i4.jpg" alt="Defaults" class="tip-img">
+            <div class="tip-text">
+                <h2>4. Change Default Passwords</h2>
+                <p>Most IoT devices ship with factory settings like "admin". Always change default credentials immediately to prevent automated attacks.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tip-card">
+        <div class="tip-row">
+            <img src="i5.jpg" alt="Encryption" class="tip-img">
+            <div class="tip-text">
+                <h2>5. Encrypt Sensitive Data</h2>
+                <p>Encryption scrambles data into unreadable code. It ensures that even if files are intercepted, they remain useless to unauthorized parties.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="media-section">
+    <div class="tip-card">
+        <div class="media-vertical-stack">
+            <video class="video" controls><source src="video.mp4" type="video/mp4"></video>
+            <audio class="audio" controls><source src="audio.mp3" type="audio/mpeg"></audio>
+        </div>
+        <div class="pdf-container">
+            <iframe src="pdf.pdf" class="pdf-iframe"></iframe>
+        </div>
+    </div>
+</section>
+
+<div class="tracker-section">
+    <div class="tracker-card">
+        <h2>Security Status Tracker</h2>
+        <p>Threat Level: <strong id="threatLevelDisplay" class="safe">LOW</strong></p>
+        <p>System Status: <strong id="systemStatusDisplay">ENABLED</strong></p>
+        <button onclick="updateThreatLevel()" class="btn">Update Status</button>
+    </div>
+</div>
+
 <footer class="footer">
-    <p>
-        &copy; 2025 Cybersecurity Awareness Website<br>
-        Created by: Jayalaxmi Donka
-    </p>
+    <p>&copy; 2026 Cybersecurity Awareness | Created by: Jayalaxmi Donka</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
