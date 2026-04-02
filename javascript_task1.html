@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Interactive Website</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f6f9;
+        }
+
+        header {
+            background: #4a90e2;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            background: #4a90e2;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #357abd;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px 0;
+            width: 100%;
+        }
+
+        .highlight {
+            color: white;
+            background: #e94e77;
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+<body>
+
+<header>
+    <h1 id="heading">JavaScript Interactive Website</h1>
+</header>
+
+<div class="container">
+
+    <!-- TEXT MANIPULATION -->
+    <div class="card">
+        <h3>Text Manipulation</h3>
+        <p id="para">This is original text</p>
+        <button onclick="changeText()">Change Text</button>
+        <button onclick="toggleStyle()">Toggle Style</button>
+    </div>
+
+    <!-- MATH FUNCTIONS -->
+    <div class="card">
+        <h3>Math Functions</h3>
+        <button onclick="showMath()">Run Calculations</button>
+        <p id="mathResult"></p>
+    </div>
+
+    <!-- ADD / REMOVE CONTENT -->
+    <div class="card">
+        <h3>Dynamic Content</h3>
+        <button onclick="addContent()">Add Paragraph</button>
+        <button onclick="removeContent()">Remove Main Paragraph</button>
+    </div>
+
+    <!-- FORM -->
+    <div class="card">
+        <h3>Form Validation</h3>
+        <form onsubmit="handleSubmit(event)">
+            Name:
+            <input type="text" id="nameInput">
+            Age:
+            <input type="number" id="ageInput">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- PRINT -->
+    <div class="card">
+        <h3>Print Page</h3>
+        <button onclick="printPage()">Print</button>
+    </div>
+
+</div>
+
+<script>
+
+    // ---------------- TASK 1: VARIABLES ----------------
+    var a = 10;
+    let b = 5;
+    const c = 2;
+
+    console.log("Values:", a, b, c);
+
+    // ---------------- TASK 2: FUNCTIONS ----------------
+    function add(x, y) {
+        return x + y;
+    }
+
+    function subtract(x, y) {
+        return x - y;
+    }
+
+    const multiply = (x, y) => x * y;
+
+    function showMath() {
+        let result = `
+            Add: ${add(10,5)} <br>
+            Subtract: ${subtract(10,5)} <br>
+            Multiply: ${multiply(10,5)}
+        `;
+        document.getElementById("mathResult").innerHTML = result;
+    }
+
+    // ---------------- TASK 3: BUILT-IN FUNCTIONS ----------------
+    alert("Welcome to the JavaScript Website!");
+
+    let userName = prompt("Enter your name:");
+    console.log("User:", userName);
+
+    // ---------------- TASK 4: MANIPULATE HTML ----------------
+    function changeText() {
+        document.getElementById("para").innerHTML = "Text has been changed!";
+    }
+
+    function addContent() {
+        let newPara = document.createElement("p");
+        newPara.innerHTML = "New paragraph added!";
+        document.querySelector(".container").appendChild(newPara);
+    }
+
+    function removeContent() {
+        let p = document.getElementById("para");
+        if (p) p.remove();
+    }
+
+    // ---------------- TASK 5: STYLE ----------------
+    let toggled = false;
+
+    function toggleStyle() {
+        let p = document.getElementById("para");
+
+        if (!p) return;
+
+        if (!toggled) {
+            p.classList.add("highlight");
+            toggled = true;
+        } else {
+            p.classList.remove("highlight");
+            toggled = false;
+        }
+    }
+
+    // ---------------- TASK 6: EVENTS ----------------
+    let heading = document.getElementById("heading");
+
+    heading.onmouseover = function() {
+        heading.style.color = "yellow";
+    };
+
+    heading.onmouseout = function() {
+        heading.style.color = "white";
+    };
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        console.log("Form Submitted");
+
+        let name = document.getElementById("nameInput").value;
+        let age = document.getElementById("ageInput").value;
+
+        if (name === "" || age === "") {
+            alert("Please fill all fields!");
+        } else {
+            alert("Welcome " + name + "!");
+        }
+    }
+
+    // ---------------- TASK 7: INTERACTIVE ----------------
+    if (userName) {
+        let greet = document.createElement("h2");
+        greet.style.textAlign = "center";
+        greet.innerText = "Hello " + userName + "!";
+        document.body.appendChild(greet);
+    }
+
+    function printPage() {
+        window.print();
+    }
+
+</script>
+
+</body>
+</html>
