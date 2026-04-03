@@ -1,32 +1,22 @@
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-session_start();
-$conn = new mysqli("localhost", "root", "", "cyberdb");
-if ($conn->connect_error) {
-    die("Database Connection Failed: " . $conn->connect_error);
-}
-
-if (isset($_POST['login'])) {
-    $email = trim($_POST['email']);
-    $password = $_POST['password'];
-
-    $sql = "SELECT * FROM users WHERE email = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows === 1) {
-        $user = $result->fetch_assoc();
-        if (strcmp($password, $user['password']) !== 0) {
-            echo "❌ Error: Passwords do not match."; 
-            exit();
-        } else {
-            echo "✅ LOGIN SUCCESS. WELCOME " . strtoupper($user['username']);
-        }
-    } else {
-        print "❌ Error: Email not found.";
-    }
-}
+<?php 
+session_start(); 
+require __DIR__ . '/config/db.php'; 
+$email = $_POST['email'] ?? ''; 
+$password = $_POST['password'] ?? ''; 
+if (!$email || !$password) { 
+die("Email and password are required."); 
+} 
+// Find user 
+$user = $users->findOne(['email' => $email]); 
+if (!$user) { 
+die("User not found. <a href='index.html'>Go back</a>"); 
+} 
+// Verify password 
+if (!password_verify($password, $user['password'])) { 
+die("Invalid password. <a href='index.html'>Go back</a>"); 
+} 
+// Login success 
+$_SESSION['user'] = $user['email']; 
+header("Location: dashboard.php"); 
+exit;
 ?>
