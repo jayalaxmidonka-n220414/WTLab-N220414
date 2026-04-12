@@ -1,0 +1,45 @@
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Sidebar */
+.profile {
+  background: #343a40;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.profile h3 {
+  margin-top: 10px;
+}
+
+.role {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Section Titles */
+.section-title {
+  border-bottom: 2px solid #0d6efd;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+}
+
+/* Cards */
+.card {
+  border-radius: 10px;
+}
+
+/* Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-in-out;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
